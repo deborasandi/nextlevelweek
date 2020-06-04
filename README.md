@@ -3,6 +3,28 @@
 #### Server: Node.js
 ###### Instalação e inicialização do projeto
 
+> Instalar Chocolatey
+
+```console
+choco install nodejs-lts
+
+npm install ts-node -D
+
+npm install typescript -D
+```
+
+###### Inicialização do projeto (pasta server)
+
+```console
+npm init -y
+```
+
+###### Dentro do terminal do VSC
+
+```console
+npm install express
+```
+
 ###### Rodar projeto
 ```console
 npm run dev
@@ -82,6 +104,8 @@ npm install react-native-picker-select
 
 #### Utils
 
+- [Chocolatey](https://chocolatey.org/install)
+- [Node.JS](https://nodejs.org/en/download/package-manager/)
 - [Google Fonts](https://fonts.google.com/)
 - [Expo Google Fonts](https://github.com/expo/google-fonts)
   - Como resolver problema para instalar as fontes:
