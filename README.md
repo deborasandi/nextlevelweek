@@ -25,6 +25,11 @@ npm init -y
 npm install express
 ```
 
+###### Pacote para upload de fotos
+```console
+npm install multer
+```
+
 ###### Rodar projeto
 ```console
 npm run dev
@@ -38,6 +43,16 @@ npm run dev
 npm install axios
 ```
 
+###### Instalar pacote para criar dropzone
+```console
+npm install react-dropzone
+```
+
+###### Rodar projeto
+```console
+npm start
+```
+
 #### Mobile: React Native
 ###### Instalação e inicialização do projeto
 ```console
@@ -45,10 +60,6 @@ npm install -g expo-cli
 
 expo init mobile
 > choose blank (TypeScript)
-
-cd mobile
-
-npm start
 ```
 
 ###### Instalar fontes expo-google-fonts no terminal do VSC
@@ -102,6 +113,11 @@ expo install expo-mail-composer
 npm install react-native-picker-select
 ```
 
+###### Rodar projeto
+```console
+npm start
+```
+
 #### Utils
 
 - [Chocolatey](https://chocolatey.org/install)
@@ -115,9 +131,7 @@ npm install react-native-picker-select
     set-executionpolicy remotesigned
     ```
 - [Leaflet](https://leafletjs.com/)
-- [React Navigation](https://reactnavigation.org/)
-- [Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
-- [React Native Picker Composer](https://www.npmjs.com/package/react-native-picker-select)
+- [Unsplash](https://unsplash.com/)
 
 #### Problemas para instalar pacotes tanto no terminal do VSC quanto no PowerShell
 
