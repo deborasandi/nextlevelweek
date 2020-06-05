@@ -30,6 +30,12 @@ npm install express
 npm install multer
 ```
 
+###### Pacote para validação de dados
+```console
+npm install celebrate
+npm install @types/hapi__joi -D
+```
+
 ###### Rodar projeto
 ```console
 npm run dev
