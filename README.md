@@ -7,23 +7,20 @@
 
 ```console
 choco install nodejs-lts
-
-npm install ts-node -D
-
-npm install typescript -D
 ```
 
 ###### Inicialização do projeto (pasta server)
 
 ```console
 npm init -y
-```
 
-###### Dentro do terminal do VSC
+npm install ts-node -D
 
-```console
+npm install typescript -D
+
 npm install express
 ```
+
 
 ###### Pacote para upload de fotos
 ```console
