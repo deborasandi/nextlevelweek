@@ -39,7 +39,10 @@ npm run dev
 ```
 
 #### Web: React + Typescript
-###### Instalação e inicialização do projeto
+###### Inicializar projeto
+```console
+npx create-react-app web --template=typescript
+```
 
 ###### Instalar cliente http
 ```console
