@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, ChangeEvent} from 'react'
 import {Feather as Icon} from '@expo/vector-icons'
 import {View, ImageBackground, Image, Text, StyleSheet} from 'react-native'
 import {RectButton} from 'react-native-gesture-handler'
@@ -18,6 +18,10 @@ const Home = () => {
   const navigation = useNavigation()
 
   const [ufs, setUfs] = useState<string[]>([]);
+  const [cities, setCities] = useState<string[]>([]);
+
+  const [selectedUf, setSelectedUf] = useState("0");
+  const [selectedCity, setSelectedCity] = useState("0");
 
   useEffect(() => {
     axios.get<IBGEUFResponse[]>("https://servicodados.ibge.gov.br/api/v1/localidades/estados").then(response => {
@@ -25,9 +29,31 @@ const Home = () => {
       setUfs(ufInitials);
     });
   }, []);
+  
+  useEffect(() => {
+    if(selectedUf === '0'){
+      return;
+    }
+
+    axios.get<IBGECityResponse[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUf}/municipios`).then(response => {
+      const cityNames = response.data.map(city => city.nome);
+      setCities(cityNames);
+    });
+  }, [selectedUf]);
+
+  function handleSelectUf(uf: string) {
+    setSelectedUf(uf);
+  }
+
+  function handleSelectCity(city: string) {
+    setSelectedCity(city);
+  }
 
   function handleNavigateToPoints(){
-    navigation.navigate('Points')
+    navigation.navigate('Points', {
+      uf: selectedUf,
+      city: selectedCity
+    });
   }
 
   return (
@@ -44,19 +70,20 @@ const Home = () => {
     <View style={styles.select}>
       <RNPickerSelect
         placeholder={{ label: "Selecione a UF", value: '0' }}
-        onValueChange={(value) => (value)}
+        value={selectedUf}
+        onValueChange={(value) => handleSelectUf(value)}
         items={ufs.map(uf => (
           {label: uf, value: uf, key: uf}
         ))}
       />
-        <RNPickerSelect
-          onValueChange={(value) => console.log(value)}
-          items={[
-              { label: 'Football', value: 'football' },
-              { label: 'Baseball', value: 'baseball' },
-              { label: 'Hockey', value: 'hockey' },
-          ]}
-        />
+      <RNPickerSelect
+        placeholder={{ label: "Selecione a Cidade", value: '0' }}
+        value={selectedCity}
+        onValueChange={(value) => handleSelectCity(value)}
+        items={cities.map(city => (
+          {label: city, value: city, key: city}
+        ))}
+      />
     </View>
 
     <View style={styles.footer}>
